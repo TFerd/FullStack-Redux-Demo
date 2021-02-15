@@ -14,7 +14,7 @@ export default function App() {
   const user = useSelector((state) => state.user.user);
   console.log(user);
 
-  //
+  
   //the counter comes from the reducer in configStore.js
   //and count comes from the reducer in the ducks/counter.js file
   const count = useSelector((state) => state.counter.count);
