@@ -1,7 +1,7 @@
-import Counter from "./Counter";
-import { useDispatch, useSelector, useStore } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getUser } from "./redux/ducks/user";
+import { CircularProgress } from "@material-ui/core";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -14,14 +14,11 @@ export default function App() {
   const user = useSelector((state) => state.user.user);
   console.log(user);
 
-  
   //the counter comes from the reducer in configStore.js
   //and count comes from the reducer in the ducks/counter.js file
-  const count = useSelector((state) => state.counter.count);
   return (
     <div className="App">
-      <h2>Count: {count}</h2>
-      <Counter />
+      {user ? <h1>{`Hello ${user.firstName}`}</h1> : <CircularProgress />}
     </div>
   );
 }
