@@ -16,3 +16,17 @@ export function* handleGetUser(action) {
     console.log(error);
   }
 }
+
+
+export function* handleGetUserList(action) {
+  try {
+    const response = yield call(requestGetUser);
+
+    const { data } = response; //destruct the data
+
+    //now store in reducer by passing into set user
+    yield put(setUser(data));
+  } catch (error) {
+    console.log(error);
+  }
+}

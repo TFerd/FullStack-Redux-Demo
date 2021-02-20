@@ -1,5 +1,6 @@
 export const GET_USER = "GET_USER";
 const SET_USER = "SET_USER";
+const SET_USERLIST = "SET_USERLIST";
 
 //connect to:
 export const getUser = () => ({
@@ -11,8 +12,14 @@ export const setUser = (user) => ({
   user //same as user: user
 });
 
+export const setUserList = (userList) => ({
+  type: SET_USERLIST,
+  userList
+})
+
 const initialState = {
-  user: undefined
+  user: undefined,
+  userList: undefined
 };
 
 //redux saga will handle the getUser function
@@ -21,6 +28,9 @@ export default (state = initialState, action) => {
     case SET_USER:
       const { user } = action;
       return { ...state, user };
+    case SET_USERLIST:
+      const {userList} = action;
+      return {...state, userList}
     default:
       return state;
   }

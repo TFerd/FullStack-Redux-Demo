@@ -3,6 +3,6 @@ import axios from "axios";
 export function requestGetUser() {
   return axios.request({
     method: "get",
-    url: "https://my-json-server.typicode.com/tferd1/demo/user"
+    url: "https://my-json-server.typicode.com/tferd/demo/users"
   });
 }
