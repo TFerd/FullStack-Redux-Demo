@@ -1,15 +1,32 @@
-import { takeLatest } from "redux-saga/effects";
-import { handleGetUser } from "./handlers/user";
-import { GET_USER } from "../ducks/user";
+import { all, takeLatest } from "redux-saga/effects";
+import { handleGetUser, handleGetUserList } from "./handlers/user";
+import { GET_USER, GET_USERLIST } from "../ducks/user";
 
 //will look out for specific actions and map them to their handler functions
 //maybe change this to root saga and make it default
-export function* watcherSaga() {
-  yield takeLatest(GET_USER, handleGetUser); //maybe change takeLatest here to yield all() and
-  //put the takeEvery in the individual functions
-  //MAYBE PASS IN AN ARRAY OF OBJECTS
-} //INSTEAD OF MAKING A BUNCH OF WATCHERS //BAHAHAHAH I WAS RIGHT
+// export function* watcherSaga() {
+//   yield takeLatest(GET_USER, handleGetUser); //maybe change takeLatest here to yield all() and
+//   //put the takeEvery in the individual functions
+//   //MAYBE PASS IN AN ARRAY OF OBJECTS
+// } //INSTEAD OF MAKING A BUNCH OF WATCHERS //BAHAHAHAH I WAS RIGHT
 
+//takeLatest(ACTION, WHAT YOU WANNA DO WHEN IT HAPPENS)
+//AKA:: takeLatest(ACTION_FROM_DUCKS, handlerFunctionFromHandlers)
+//The reducer will handle the SET actions, while the handlers and requests folders will handle the GET actions
+function* getUserSaga() {
+  console.log("rootSaga.js getUserSaga() called...");
+  yield takeLatest(GET_USER, handleGetUser);
+}
+
+function* getUserListSaga(userId) {
+  console.log("rootSaga.js getUserListSaga() called...");
+
+  yield takeLatest(GET_USERLIST, handleGetUserList, userId);
+}
+
+export default function* rootSaga() {
+  yield all([getUserSaga(), getUserListSaga()]);
+}
 //*****I THINK THIS ANSWERS EVERYTHING!!!******** */
 // function* helloSaga() {
 //   console.log('Hello Sagas!')
