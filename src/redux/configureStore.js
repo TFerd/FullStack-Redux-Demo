@@ -3,7 +3,7 @@ import createSagaMiddleware from "redux-saga";
 //THIS IS IMPORTING THE DEFAULT, WHICH IS THE SWITCH STATEMENT
 //IS THE SWITCH STATEMENT THE ACTUAL REDUCER OMG ?????
 import userReducer from "./ducks/user";
-import { watcherSaga } from "./sagas/rootSaga";
+import watcherSaga from "./sagas/rootSaga";
 
 const reducer = combineReducers({
   user: userReducer
@@ -18,5 +18,10 @@ const store = createStore(reducer, {}, applyMiddleware(...middleWare));
 
 //watches for actions that get dispatched
 sagaMiddleware.run(watcherSaga);
+
+console.log(
+  "configStore.js:\nsagaMiddleware.run has been called, param is: ",
+  watcherSaga
+);
 
 export default store;
