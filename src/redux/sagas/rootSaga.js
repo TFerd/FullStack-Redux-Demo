@@ -13,9 +13,9 @@ import { GET_USER, GET_USERLIST } from "../ducks/user";
 //takeLatest(ACTION, WHAT YOU WANNA DO WHEN IT HAPPENS)
 //AKA:: takeLatest(ACTION_FROM_DUCKS, handlerFunctionFromHandlers)
 //The reducer will handle the SET actions, while the handlers and requests folders will handle the GET actions
-function* getUserSaga(userId) {
+function* getUserSaga() {
   console.log("rootSaga.js getUserSaga() called...");
-  yield takeLatest(GET_USER, handleGetUser, userId);
+  yield takeLatest(GET_USER, handleGetUser);
 }
 
 function* getUserListSaga() {
@@ -24,6 +24,7 @@ function* getUserListSaga() {
   yield takeLatest(GET_USERLIST, handleGetUserList);
 }
 
+//@TODO CHANGE yield all to: yield all(...sagaArray)
 export default function* rootSaga() {
   yield all([getUserSaga(), getUserListSaga()]);
 }

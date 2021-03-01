@@ -12,8 +12,8 @@ const UserList = () => {
     console.log("dispatched");
     dispatch(getUserList()); //This getUser method sets the state variable userList
 
-    console.log("TESTING: single user fetch with id parameter...");
-    dispatch(getUser(1));
+    console.log("TESTING: single user fetch with id parameter...", 1);
+    dispatch(getUser(1)); //THIS IS HOW YOU PASS PARAMS
   }, []);
 
   return (

@@ -8,6 +8,7 @@ import { requestGetUser, requestGetUserList } from "../requests/user";
 //the requests return the data and the handlers HANDLE the rest...
 export function* handleGetUser(action) {
   console.log("./handlers/user.js handleGetUser() called...action is:", action);
+  console.log("Payload is:", action.payload);
   try {
     const response = yield call(requestGetUser, action.payload);
 

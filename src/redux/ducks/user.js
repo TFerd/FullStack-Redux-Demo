@@ -6,6 +6,7 @@ const SET_USERLIST = "SET_USERLIST";
 //IF WHAT YOU'RE LOOKING FOR ISN'T IN HERE, IT'S PROBABLY IN ROOTSAGA.JS
 
 //connects to: ???THE SAGA???
+//THIS EXPORTS AN OBJECT, SO THIS IS WHEN YOU GET A PAYLOAD
 export const getUser = (userId) => ({
   type: GET_USER,
   payload: userId
