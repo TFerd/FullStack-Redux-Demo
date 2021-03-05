@@ -4,6 +4,7 @@
 // import { CircularProgress } from "@material-ui/core";
 
 import UserList from "./components/UserList";
+import User from "./components/User";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //MOVING EVERYTHING TO THE COMPONENTS FOLDER
@@ -62,7 +63,7 @@ export default function App() {
           {/* <UserList /> */}
 
           <Route exact path="/" children={<UserList />} />
-          {/* <Route path="/todo/:id" children={ User } /> */}
+          <Route path="/user/:id" children={<User />} />
 
           {/* Button that sets a boolean showUserList to true maybe?
           Also maybe change the text on the button from show to hide */}
