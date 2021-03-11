@@ -11,7 +11,7 @@ const UserList = () => {
 
   //this is what starts all the calls
   useEffect(() => {
-    console.log("dispatched");
+    // console.log("dispatched");
     dispatch(getUserList()); //This getUser method sets the state variable userList
 
     // console.log("TESTING: single user fetch with id parameter...", 1);

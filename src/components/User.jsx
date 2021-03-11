@@ -18,6 +18,7 @@ const User = () => {
     dispatch(getUser(id));
   }, []);
 
+  //@TODO: change this back button so that it just sets the url to the index
   return (
     <div>
       {user && id == userId ? (
